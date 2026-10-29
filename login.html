@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+</head>
+<body style="background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80'); background-size: cover; background-position: center;">
+<div class="center">
+  <div class="card">
+    <h1>Welcome to Calm Mind</h1>
+    <p>Take a deep breath. You are safe here.</p>
+    <input type="text" id="name" placeholder="Your Name">
+    <button onclick="login()">Enter</button>
+    <a href="signup.html">Don't have an account? Sign Up</a>
+    <div class="quote">“Peace comes from within.”</div>
+  </div>
+</div>
+<script>
+function login(){
+  const name = document.getElementById('name').value.trim();
+  if(!name) return alert('Please enter your name');
+  localStorage.setItem('user', JSON.stringify({name}));
+  window.location.href='main.html';
+}
+</script>
+<script src="bot.js"></script>
+
+</body>
+</html>

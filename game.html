@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Star Jar Game</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+<style>
+  .jar {
+    width: 300px;
+    height: 400px;
+    border: 5px solid rgba(255,255,255,0.8);
+    border-radius: 50% 50% 10% 10%;
+    position: relative;
+    margin: auto;
+    background: rgba(255,255,255,0.15);
+    box-shadow: 0 0 20px rgba(255,255,255,0.3) inset;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px;
+  }
+  .star {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .star:hover { transform: scale(1.4); }
+  .key { display:flex; flex-wrap: wrap; justify-content:center; gap:15px; margin-top:20px; color:#fff; font-weight:bold; }
+  .key-item { display:flex; align-items:center; gap:5px; }
+  .key-color { width:20px; height:20px; border-radius:50%; display:inline-block; }
+</style>
+</head>
+<body style="background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80'); background-size: cover; background-position: center;">
+
+<div class="center">
+  <div class="card">
+    <h1>Star Jar</h1>
+    <div class="jar" id="jar"></div>
+    <div class="key" id="key"></div>
+    <p id="quote" class="quote"></p>
+    <button onclick="window.location.href='main.html'">Back</button>
+  </div>
+</div>
+
+<script>
+// Pastel natural colors
+const states = [
+  {name:"Hope", color:"#FFF8DC", quotes:["Hope shines bright ✨","Never lose hope 💛"]},
+  {name:"Calm", color:"#B0E0E6", quotes:["Breathe and relax 🌊","Peace is inside you 💙"]},
+  {name:"Strength", color:"#98FB98", quotes:["You are strong 💚","Believe in yourself 🌿"]},
+  {name:"Motivation", color:"#FFB6C1", quotes:["Keep moving 🔥","Stay motivated ❤️"]},
+  {name:"Joy", color:"#FFE4E1", quotes:["Smile, you deserve it 😄","Happiness surrounds you 🌸"]},
+  {name:"Gratitude", color:"#FAFAD2", quotes:["Be thankful today 🌟","Gratitude warms the heart 💛"]},
+  {name:"Love", color:"#FADADD", quotes:["You are loved 💖","Spread love ❤️"]},
+  {name:"Peace", color:"#E0FFFF", quotes:["Peace flows within you 🌿","Calm mind, happy heart 💙"]},
+  {name:"Confidence", color:"#F5F5DC", quotes:["Believe in your power 💪","You are confident 🌟"]},
+  {name:"Healing", color:"#FFFACD", quotes:["Healing takes time 💛","Nurture yourself 🌸"]}
+];
+
+const jar = document.getElementById('jar');
+const keyDiv = document.getElementById('key');
+
+// Generate key
+states.forEach(s=>{
+  const div = document.createElement('div');
+  div.classList.add('key-item');
+  div.innerHTML = `<span class="key-color" style="background:${s.color}"></span> ${s.name}`;
+  keyDiv.appendChild(div);
+});
+
+// Create stars
+states.forEach(s=>{
+  const count = 2 + Math.floor(Math.random()*2);
+  for(let i=0;i<count;i++){
+    const star = document.createElement('img');
+    star.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Star_icon-72a7cf.svg/1024px-Star_icon-72a7cf.svg.png";
+    star.classList.add('star');
+    star.dataset.quotes = JSON.stringify(s.quotes);
+    star.dataset.clicks = 0;
+    jar.appendChild(star);
+
+    star.addEventListener('click', ()=>{
+      const q = JSON.parse(star.dataset.quotes);
+      const index = star.dataset.clicks % q.length;
+      document.getElementById('quote').innerText = q[index];
+      star.dataset.clicks = parseInt(star.dataset.clicks)+1;
+    });
+  }
+});
+</script>
+
+<!-- Include floating AI bot -->
+<script src="bot.js"></script>
+
+
+</body>
+</html>

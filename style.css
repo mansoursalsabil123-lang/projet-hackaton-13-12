@@ -1,0 +1,91 @@
+/* Shared style for all pages */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
+    color: #000; /* Default text black */
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.678); /* almost fully opaque */
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    color: #000;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    min-width: 300px;
+}
+
+/* Inputs and textareas */
+input, textarea {
+    background: rgba(255, 255, 255, 0.659); /* fully opaque */
+    color: #000;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    width: 80%;
+    font-size: 16px;
+    margin: 10px auto;
+    display: block;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+/* Buttons */
+button {
+    display: block;
+    margin: 10px auto;
+    padding: 12px 25px;
+    border-radius: 12px;
+    border: none;
+    background-color: rgb(255, 255, 255); /* blue color instead of pink */
+    color: rgb(53, 208, 162);
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: rgb(53, 208, 162);
+    color: rgb(255, 255, 255);
+}
+
+/* Options */
+.option {
+    background: rgba(255, 255, 255, 0.538);
+    padding: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 10px 0;
+}
+
+.option:hover {
+    background: rgba(0,0,0,0.15);
+}
+
+/* Account icon */
+#accountIcon {
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    position:absolute;
+    top:0;
+    right:0;
+    cursor:pointer;
+}
+
+/* Quote display in game */
+#quote {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 500;
+}

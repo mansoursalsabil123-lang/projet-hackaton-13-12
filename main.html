@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Main Dashboard</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+</head>
+<body>
+<div class="center">
+  <div class="card">
+    <div style="position: relative;">
+      <h1 id="welcome"></h1>
+      <img src="https://cdn-icons-png.flaticon.com/512/147/147144.png" alt="Account" id="accountIcon"
+           onclick="openAccount()">
+    </div>
+    <div class="option" onclick="window.location.href='game.html'"> Play Star Jar</div>
+    <div class="option" onclick="window.location.href='professional.html'"> Talk with Professional</div>
+  </div>
+</div>
+
+<!-- Account modal -->
+<div id="accountModal" class="card" style="display:none;position:fixed;top:75%;left:75%;transform:translate(-75%,-75%);max-width:400px;z-index:10;">
+  <h2>Your Account</h2>
+  <input id="accName" placeholder="Name" onclick="openChatBot()">
+  <input id="accEmail" placeholder="Email" onclick="openChatBot()">
+  <input id="accAge" placeholder="Age" onclick="openChatBot()">
+  <input id="accLanguage" placeholder="Preferred Language" onclick="openChatBot()">
+  <button onclick="saveAccount()">Save Changes</button>
+  <button onclick="closeAccount()">Close</button>
+</div>
+
+<script>
+const u = JSON.parse(localStorage.getItem('user'));
+document.getElementById('welcome').innerText = `Hi ${u ? u.name : ''}, hope you're feeling better `;
+
+function openAccount(){
+  document.getElementById('accountModal').style.display='block';
+  if(u){
+    document.getElementById('accName').value = u.name;
+    document.getElementById('accEmail').value = u.email;
+    document.getElementById('accAge').value = u.age;
+    document.getElementById('accLanguage').value = u.language;
+  }
+}
+function closeAccount(){ document.getElementById('accountModal').style.display='none'; }
+function saveAccount(){
+  const user = {
+    name: document.getElementById('accName').value,
+    email: document.getElementById('accEmail').value,
+    age: document.getElementById('accAge').value,
+    language: document.getElementById('accLanguage').value
+  };
+  localStorage.setItem('user', JSON.stringify(user));
+  alert("Account saved!");
+  closeAccount();
+}
+</script>
+
+<!-- Floating AI bot -->
+<script src="bot.js"></script>
+
+
+</body>
+</html>

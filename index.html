@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mental Wellness – First Psychological Platform in Tunisia</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+/* Body with textured background */
+body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #1f3a5f;
+
+    /* Background texture image */
+    background-image: url('https://images.unsplash.com/photo-1588776814546-99b88c4dc15e?auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* keeps texture fixed when scrolling */
+}
+
+/* Sections */
+.section {
+    padding: 70px 30px;
+    border-radius: 20px;
+    max-width: 1000px;
+    margin: 40px auto;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(0,0,0,0.05);
+}
+
+/* Hero section with separate image */
+.hero {
+    background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    padding: 120px 120px;
+    border-radius: 20px;
+}
+
+/* Other sections: calm theme colors */
+.about {
+    background-color: rgba(255, 255, 255, 0.842);
+}
+
+.stats-section {
+    background-color: rgba(211,241,239,0.9);
+}
+
+.how-it-works {
+    background-color: rgba(255,255,255,0.9);
+}
+
+.safety {
+    background-color: rgba(211,241,239,0.9);
+}
+
+.cta {
+    background-color: rgba(255,255,255,0.9);
+}
+
+/* Headings and paragraphs */
+.section h1, .section h2 {
+    font-size: 34px;
+    margin-bottom: 20px;
+    color: inherit;
+}
+
+.section p {
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Stats grid */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.stat-box {
+    background: rgba(255,255,255,0.9);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.05);
+}
+
+.stat-box h3 {
+    font-size: 30px;
+    margin: 0;
+    color: #1f3a5f;
+}
+
+/* Buttons */
+.main-btn {
+    margin-top: 25px;
+    padding: 14px 35px;
+    font-size: 18px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    background: #1f7a8c;
+    color: #fff;
+    transition: 0.3s;
+}
+
+.main-btn:hover {
+    background: #16697a;
+    transform: scale(1.05);
+}
+
+/* Input field */
+input[type="text"] {
+    padding: 12px 18px;
+    border-radius: 12px;
+    border: 1px solid #35d0a2;
+    font-size: 16px;
+    width: 250px;
+    margin-top: 15px;
+}
+
+.divider {
+    height: 1px;
+    background: rgba(0,0,0,0.05);
+    margin: 50px 0;
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="section hero">
+    <h1>🌿 Mental Wellness</h1>
+    <p>The first psychological platform in Tunisia. A safe, anonymous, and human space to support your mental well-being.</p>
+    <button class="main-btn" onclick="enterPlatform()">Enter the Platform</button>
+</div>
+
+<!-- ABOUT -->
+<div class="section about">
+    <h2>Why Mental Wellness?</h2>
+    <p>Stress, anxiety, or emotional struggles are not weaknesses. We are here to listen, support you, and provide psychological tools with professionals and AI available 24/7.</p>
+</div>
+
+<!-- STATS -->
+<div class="section stats-section">
+    <h2>Our Impact</h2>
+    <div class="stats">
+        <div class="stat-box">
+            <h3>1200+</h3>
+            <p>People Supported</p>
+        </div>
+        <div class="stat-box">
+            <h3>3400+</h3>
+            <p>Anonymous Sessions</p>
+        </div>
+        <div class="stat-box">
+            <h3>25+</h3>
+            <p>Mental Health Professionals</p>
+        </div>
+        <div class="stat-box">
+            <h3>24/7</h3>
+            <p>AI Emotional Support</p>
+        </div>
+    </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="section how-it-works">
+    <h2>How It Helps You</h2>
+    <p>✔ Talk to AI without judgment <br>✔ Anonymous sessions with licensed professionals <br>✔ Mindful games and stress relief activities <br>✔ Personalized mental health resources</p>
+</div>
+
+<!-- SAFETY -->
+<div class="section safety">
+    <h2>Safety & Trust</h2>
+    <p>Your data is protected, sessions are private, and emergency support is available when needed in Tunisia.</p>
+</div>
+
+<!-- CTA -->
+<div class="section cta">
+    <h2>We are a 100% anonymous platform</h2>
+    <p>What should we call you?</p>
+    <input type="text" placeholder="Your name or nickname" id="username">
+    <button class="main-btn" onclick="start()">Start & Sign up</button>
+</div>
+
+<script>
+function enterPlatform() {
+    window.location.href = "signup.html";
+}
+
+function start() {
+    const name = document.getElementById("username").value.trim();
+    if(name==="") {
+        alert("Please enter your name or nickname.");
+        return;
+    }
+    localStorage.setItem("username", name);
+    window.location.href = "signup.html";
+}
+</script>
+
+<!-- AI Bot -->
+<script src="bot.js"></script>
+
+</body>
+</html>

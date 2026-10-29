@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sign Up</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+</head>
+<body>
+<div class="center">
+  <div class="card">
+    <h1>Sign Up </h1>
+    <input type="text" id="name" placeholder="Name" onclick="openChatBot()">
+    <input type="email" id="email" placeholder="Email" onclick="openChatBot()">
+    <input type="number" id="age" placeholder="Age" onclick="openChatBot()">
+    <input type="text" id="language" placeholder="Preferred Language" onclick="openChatBot()">
+    <textarea id="emergency" placeholder="Emergency Contact" onclick="openChatBot()"></textarea>
+    <button onclick="signup()">Create Account</button>
+  </div>
+</div>
+
+<script>
+function signup(){
+  const user = {
+    name: document.getElementById('name').value,
+    email: document.getElementById('email').value,
+    age: document.getElementById('age').value,
+    language: document.getElementById('language').value,
+    emergency: document.getElementById('emergency').value
+  };
+  localStorage.setItem('user', JSON.stringify(user));
+  alert("Account created!");
+  window.location.href='main.html';
+}
+</script>
+
+<!-- Floating AI bot -->
+<script src="bot.js"></script>
+
+
+</body>
+</html>
+

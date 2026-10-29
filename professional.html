@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Talk with Professional</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+<style>
+  .center { display:flex; justify-content:center; align-items:center; height:100vh; }
+  .card { background: rgba(255,255,255,0.15); padding:30px; border-radius:20px; text-align:center; color:#fff; box-shadow:0 0 20px rgba(0,0,0,0.2); min-width:300px; }
+  textarea, button { display:block; margin:10px auto; padding:10px; border-radius:10px; border:none; width:80%; }
+</style>
+</head>
+<body style="background-image:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80'); background-size: cover; background-position: center;">
+
+<div class="center">
+  <div class="card">
+    <h1>Talk with Professional </h1>
+    <textarea placeholder="Write your thoughts..." onclick="openChatBot()"></textarea>
+    <button onclick="alert('Session requested!')">Start Session</button>
+    <button onclick="window.location.href='main.html'">Back</button>
+  </div>
+</div>
+
+<!-- Include floating AI bot -->
+<script src="bot.js"></script>
+
+
+</body>
+</html>
